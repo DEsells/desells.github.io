@@ -1,313 +1,235 @@
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DeResells</title>
 
 <style>
-
 body{
-background:#0b0b0b;
-color:white;
-font-family:Arial;
-margin:0;
-text-align:center;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b0b0b;
+  color:white;
+  text-align:center;
 }
-
 header{
-padding:40px;
-font-size:42px;
-font-weight:bold;
+  padding:40px 20px;
+  font-size:42px;
+  font-weight:bold;
 }
-
 .hero{
-margin-top:40px;
+  margin-top:30px;
+  padding:20px;
 }
-
+.hero h2{
+  font-size:32px;
+}
 button{
-background:#00ff9c;
-border:none;
-padding:12px 20px;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
+  background:#00ff9c;
+  border:none;
+  padding:12px 20px;
+  font-size:16px;
+  border-radius:8px;
+  cursor:pointer;
 }
-
 .products{
-margin-top:80px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:40px;
-padding:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+  padding:40px 20px;
 }
-
 .card{
-background:#161616;
-padding:20px;
-border-radius:12px;
+  background:#161616;
+  padding:15px;
+  border-radius:12px;
+  position:relative;
+  overflow:hidden;
 }
-
+.card img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
+  transition: transform 0.3s;
+}
+.card img:hover{
+  transform: scale(1.05);
+}
+.popular{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#ff5e5e;
+  padding:5px 10px;
+  border-radius:5px;
+  font-size:12px;
+}
 .price{
-font-size:22px;
-margin:10px 0;
-color:#00ff9c;
+  color:#00ff9c;
+  font-size:20px;
+  margin:8px 0;
 }
-
-img{
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
-}
-
 select{
-padding:8px;
-margin-top:8px;
-width:80%;
+  width:80%;
+  padding:8px;
+  margin-top:8px;
 }
-
 footer{
-margin-top:100px;
-padding:40px;
+  margin-top:80px;
+  padding:40px;
+  font-size:14px;
 }
-
+.tiktok-btn{
+  display:inline-block;
+  margin-top:10px;
+  background:#69C9D0;
+  color:white;
+  padding:8px 15px;
+  border-radius:8px;
+  text-decoration:none;
+}
+@media(max-width:600px){
+  .products{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 
-
 <script>
-
 function order(item){
-
-let sizeSelect=document.getElementById(item+"_size");
-let optionSelect=document.getElementById(item+"_option");
-
-let size=sizeSelect?sizeSelect.value:"";
-let option=optionSelect?optionSelect.value:"";
-
-let message="Customer wants: "+item;
-
-if(option){
-message+=" | Option: "+option;
+  let sizeSelect=document.getElementById(item+"_size");
+  let optionSelect=document.getElementById(item+"_option");
+  let size=sizeSelect?sizeSelect.value:"";
+  let option=optionSelect?optionSelect.value:"";
+  let message="Customer wants: "+item;
+  if(option){ message+=" | Option: "+option;}
+  if(size){ message+=" | Size: "+size;}
+  window.location.href=
+    "mailto:myangels0607@yahoo.com?subject=New Order Request&body="+message;
 }
-
-if(size){
-message+=" | Size: "+size;
+function changeImage(item,img){
+  let main=document.getElementById(item+"_main");
+  main.src=img;
 }
-
-window.location.href=
-"mailto:myangels0607@yahoo.com?subject=New Order Request&body="+message;
-
-}
-
 </script>
 
-
 </head>
-
 <body>
 
 <header>DeResells</header>
 
 <div class="hero">
-
 <h2>Premium Streetwear & Designer Resell</h2>
-
 <p>Request items and we will pack your order.</p>
-
-<a href="#shop">
-<button>Shop Now</button>
-</a>
-
+<a href="#shop"><button>Shop Now</button></a>
 </div>
-
 
 <div id="shop" class="products">
 
-
+<!-- Hoodie -->
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7">
-
+<div class="popular">Hot Item</div>
+<img id="WebStreet Hoodie_main" src="https://images.unsplash.com/photo-1556821840-3a63f95609a7">
+<div style="display:flex;gap:5px;margin-bottom:10px;">
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7" width="40" onclick="changeImage('WebStreet Hoodie',this.src)">
+<img src="https://images.unsplash.com/photo-1593032465171-8d7d2c1d0c7c" width="40" onclick="changeImage('WebStreet Hoodie',this.src)">
+<img src="https://images.unsplash.com/photo-1627123424574-724758594e93" width="40" onclick="changeImage('WebStreet Hoodie',this.src)">
+</div>
 <h3>WebStreet Hoodie</h3>
-
 <select id="WebStreet Hoodie_option">
-<option>Red</option>
-<option>Blue</option>
-<option>Pink</option>
-<option>Green</option>
-<option>Black</option>
+<option>Red</option><option>Blue</option><option>Pink</option><option>Green</option><option>Black</option>
 </select>
-
 <div class="price">$80</div>
-
 <select id="WebStreet Hoodie_size">
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
+<option>Small</option><option>Medium</option><option>Large</option>
 </select>
-
 <br><br>
-
-<button onclick="order('WebStreet Hoodie')">
-Request Order
-</button>
-
+<button onclick="order('WebStreet Hoodie')">Request Order</button>
 </div>
 
-
-
+<!-- Sweatpants -->
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1593032465171-8d7d2c1d0c7c">
-
+<div class="popular">Hot Item</div>
+<img id="WebStreet Sweatpants_main" src="https://images.unsplash.com/photo-1593032465171-8d7d2c1d0c7c">
+<div style="display:flex;gap:5px;margin-bottom:10px;">
+<img src="https://images.unsplash.com/photo-1593032465171-8d7d2c1d0c7c" width="40" onclick="changeImage('WebStreet Sweatpants',this.src)">
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7" width="40" onclick="changeImage('WebStreet Sweatpants',this.src)">
+<img src="https://images.unsplash.com/photo-1627123424574-724758594e93" width="40" onclick="changeImage('WebStreet Sweatpants',this.src)">
+</div>
 <h3>WebStreet Sweatpants</h3>
-
 <select id="WebStreet Sweatpants_option">
-<option>Red</option>
-<option>Blue</option>
-<option>Pink</option>
-<option>Black</option>
+<option>Red</option><option>Blue</option><option>Pink</option><option>Black</option>
 </select>
-
 <div class="price">$50</div>
-
 <select id="WebStreet Sweatpants_size">
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
+<option>Small</option><option>Medium</option><option>Large</option>
 </select>
-
 <br><br>
-
-<button onclick="order('WebStreet Sweatpants')">
-Request Order
-</button>
-
+<button onclick="order('WebStreet Sweatpants')">Request Order</button>
 </div>
 
-
-
+<!-- Classic Elite Cologne -->
 <div class="card">
-
 <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d">
-
 <h3>Classic Elite Cologne</h3>
-
 <select id="Classic Elite Cologne_option">
-<option>Le Male Elixir</option>
-<option>Le Male Le Parfum</option>
+<option>Le Male Elixir</option><option>Le Male Le Parfum</option>
 </select>
-
 <div class="price">$60</div>
-
-<button onclick="order('Classic Elite Cologne')">
-Request Order
-</button>
-
+<button onclick="order('Classic Elite Cologne')">Request Order</button>
 </div>
 
-
-
+<!-- Bold Night Cologne -->
 <div class="card">
-
 <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
-
 <h3>Bold Night Cologne</h3>
-
 <select id="Bold Night Cologne_option">
-<option>Intensely</option>
-<option>Absolutely</option>
+<option>Intensely</option><option>Absolutely</option>
 </select>
-
 <div class="price">$70</div>
-
-<button onclick="order('Bold Night Cologne')">
-Request Order
-</button>
-
+<button onclick="order('Bold Night Cologne')">Request Order</button>
 </div>
 
-
-
+<!-- Designer Belt -->
 <div class="card">
-
 <img src="https://images.unsplash.com/photo-1601924582975-7e5e7c1e1d7d">
-
 <h3>Designer Pattern Belt</h3>
-
 <div class="price">$80</div>
-
-<button onclick="order('Designer Pattern Belt')">
-Request Order
-</button>
-
+<button onclick="order('Designer Pattern Belt')">Request Order</button>
 </div>
 
-
-
+<!-- Designer Wallet -->
 <div class="card">
-
 <img src="https://images.unsplash.com/photo-1627123424574-724758594e93">
-
 <h3>Designer Pattern Wallet</h3>
-
 <div class="price">$65</div>
-
-<button onclick="order('Designer Pattern Wallet')">
-Request Order
-</button>
-
+<button onclick="order('Designer Pattern Wallet')">Request Order</button>
 </div>
 
-
-
+<!-- Wireless Earbuds -->
 <div class="card">
-
 <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434">
-
 <h3>Wireless Earbuds</h3>
-
 <div class="price">$50</div>
-
-<button onclick="order('Wireless Earbuds')">
-Request Order
-</button>
-
+<button onclick="order('Wireless Earbuds')">Request Order</button>
 </div>
 
-
-
+<!-- Wireless Earbuds Pro -->
 <div class="card">
-
 <img src="https://images.unsplash.com/photo-1585386959984-a41552231658">
-
 <h3>Wireless Earbuds Pro</h3>
-
 <div class="price">$70</div>
-
-<button onclick="order('Wireless Earbuds Pro')">
-Request Order
-</button>
-
+<button onclick="order('Wireless Earbuds Pro')">Request Order</button>
 </div>
 
-
-
 </div>
-
 
 <footer>
-
 <p>Contact: myangels0607@yahoo.com</p>
-
-<p>TikTok: @desells3</p>
-
-<p style="font-size:12px;color:gray;">
-All products are independently sourced. DeResells is not affiliated with any brands.
-</p>
-
+<p>TikTok: @desells3 <a class="tiktok-btn" href="https://www.tiktok.com/@desells3" target="_blank">Visit TikTok</a></p>
+<p style="font-size:12px;color:gray;">All products are independently sourced. DeResells is not affiliated with any brands.</p>
 </footer>
-
 
 </body>
 </html>
