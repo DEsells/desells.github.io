@@ -2,35 +2,125 @@
 <html>
 <head>
 <title>DeResells</title>
+
 <style>
 body{
-font-family: Arial;
-background:#111;
+background:#0b0b0b;
 color:white;
+font-family:Arial;
+margin:0;
 text-align:center;
 }
+
 header{
 padding:40px;
 font-size:40px;
+font-weight:bold;
 }
+
+.hero{
+margin-top:80px;
+}
+
 button{
+background:#00ff9c;
+border:none;
 padding:15px 30px;
 font-size:18px;
-background:#00ff9d;
-border:none;
 border-radius:8px;
+cursor:pointer;
+}
+
+.products{
+margin-top:120px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+padding:40px;
+}
+
+.card{
+background:#161616;
+padding:20px;
+border-radius:10px;
+}
+
+.card button{
+margin-top:10px;
 }
 </style>
+
+<script>
+function order(item){
+window.location.href="mailto:myangels0607@yahoo.com?subject=New Order Request&body=Customer wants: "+item;
+}
+</script>
+
 </head>
 
 <body>
 
 <header>DeResells</header>
 
-<h2>Premium streetwear</h2>
-<p>Shop the latest drops.</p>
-
+<div class="hero">
+<h2>Premium Streetwear & Designer Resell</h2>
+<p>Request items and we will pack your order.</p>
 <a href="#shop"><button>Shop Now</button></a>
+</div>
+
+<div id="shop" class="products">
+
+<div class="card">
+<h3>Sp5der Hoodie</h3>
+<button onclick="order('Sp5der Hoodie')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>Sp5der Pants</h3>
+<button onclick="order('Sp5der Pants')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>Dior Cologne</h3>
+<button onclick="order('Dior Cologne')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>Jean Paul Cologne</h3>
+<button onclick="order('Jean Paul Cologne')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>Stronger With You Cologne</h3>
+<button onclick="order('Stronger With You Cologne')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>Louis Vuitton Belt</h3>
+<button onclick="order('LV Belt')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>Louis Vuitton Wallet</h3>
+<button onclick="order('LV Wallet')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>AirPods (OG)</h3>
+<button onclick="order('AirPods OG')">Request Order</button>
+</div>
+
+<div class="card">
+<h3>AirPods Pro 2</h3>
+<button onclick="order('AirPods Pro 2')">Request Order</button>
+</div>
+
+</div>
+
+<footer style="margin-top:120px;padding:40px;">
+<p>Contact: myangels0607@yahoo.com</p>
+<p>TikTok: @desells3</p>
+</footer>
 
 </body>
 </html>
