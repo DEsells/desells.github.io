@@ -35,7 +35,7 @@ cursor:pointer;
 .products{
 margin-top:120px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:40px;
 padding:40px;
 }
@@ -52,21 +52,35 @@ margin:10px 0;
 color:#00ff9c;
 }
 
+img{
+width:100%;
+border-radius:10px;
+filter:blur(2px);
+}
+
 select{
 padding:8px;
 margin-top:8px;
+width:80%;
 }
 </style>
 
 <script>
 function order(item){
-let sizeSelect = document.getElementById(item+"_size");
-let size = sizeSelect ? sizeSelect.value : "";
-let message = "Customer wants: " + item;
-if(size){ message += " | Size: " + size; }
 
-window.location.href =
-"mailto:myangels0607@yahoo.com?subject=New Order Request&body=" + message;
+let sizeSelect=document.getElementById(item+"_size");
+let optionSelect=document.getElementById(item+"_option");
+
+let size=sizeSelect?sizeSelect.value:"";
+let option=optionSelect?optionSelect.value:"";
+
+let message="Customer wants: "+item;
+
+if(option){message+=" | Option: "+option;}
+if(size){message+=" | Size: "+size;}
+
+window.location.href=
+"mailto:myangels0607@yahoo.com?subject=New Order Request&body="+message;
 }
 </script>
 
@@ -85,69 +99,119 @@ window.location.href =
 <div id="shop" class="products">
 
 <div class="card">
+<img src="https://i.imgur.com/7yUvePI.jpg">
 <h3>WebStreet Hoodie</h3>
+
+<select id="WebStreet Hoodie_option">
+<option>Red</option>
+<option>Blue</option>
+<option>Pink</option>
+<option>Green</option>
+<option>Black</option>
+</select>
+
 <div class="price">$80</div>
-<select id="webstreet Hoodie_size">
+
+<select id="WebStreet Hoodie_size">
 <option>Small</option>
 <option>Medium</option>
 <option>Large</option>
 </select>
+
 <br><br>
-<button onclick="order('webstreet Hoodie')">Request Order</button>
+<button onclick="order('WebStreet Hoodie')">Request Order</button>
 </div>
 
+
 <div class="card">
-<h3>webstreet Pants</h3>
+<img src="https://i.imgur.com/v2p9K1F.jpg">
+<h3>WebStreet Sweatpants</h3>
+
+<select id="WebStreet Sweatpants_option">
+<option>Red</option>
+<option>Blue</option>
+<option>Pink</option>
+<option>Black</option>
+</select>
+
 <div class="price">$50</div>
-<select id="webstreet Pants_size">
+
+<select id="WebStreet Sweatpants_size">
 <option>Small</option>
 <option>Medium</option>
 <option>Large</option>
 </select>
+
 <br><br>
-<button onclick="order('webstreet Pants')">Request Order</button>
+<button onclick="order('WebStreet Sweatpants')">Request Order</button>
 </div>
 
+
 <div class="card">
-<h3>John Paul Cologne</h3>
+<img src="https://i.imgur.com/Nh7ZCqG.jpg">
+<h3>Classic Elite Cologne</h3>
+
+<select id="Classic Elite Cologne_option">
+<option>Le Male Elixir</option>
+<option>Le Male Le Parfum</option>
+</select>
+
 <div class="price">$60</div>
-<button onclick="order('john Paul Cologne')">Request Order</button>
+
+<button onclick="order('Classic Elite Cologne')">Request Order</button>
 </div>
 
-<div class="card">
-<h3>Diur Cologne</h3>
-<div class="price">$70</div>
-<button onclick="order('Diur Cologne')">Request Order</button>
-</div>
 
 <div class="card">
-<h3>Stronger Without You Cologne</h3>
+<img src="https://i.imgur.com/jn3H9UO.jpg">
+<h3>Luxury Noir Cologne</h3>
+
 <div class="price">$70</div>
-<button onclick="order('Stronger Without You Cologne')">Request Order</button>
+
+<button onclick="order('Luxury Noir Cologne')">Request Order</button>
 </div>
+
+
+<div class="card">
+<img src="https://i.imgur.com/q1sKXUO.jpg">
+<h3>Bold Night Cologne</h3>
+
+<select id="Bold Night Cologne_option">
+<option>Intensely</option>
+<option>Absolutely</option>
+</select>
+
+<div class="price">$70</div>
+
+<button onclick="order('Bold Night Cologne')">Request Order</button>
+</div>
+
 
 <div class="card">
 <h3>LV Belt</h3>
 <div class="price">$80</div>
-<button onclick="order('LV Belt')">Request Order</button>
+<button onclick="order('Designer Pattern Belt')">Request Order</button>
 </div>
 
+
 <div class="card">
-<h3>LV Wallet</h3>
+<h3>Designer Pattern Wallet</h3>
 <div class="price">$65</div>
 <button onclick="order('LV Wallet')">Request Order</button>
 </div>
 
-<div class="card">
-<h3>O2Pods (OG)</h3>
-<div class="price">$50</div>
-<button onclick="order('O2 Pods OG')">Request Order</button>
-</div>
 
 <div class="card">
-<h3>O2Pods Pro 2</h3>
+<h3>02pods</h3>
+<div class="price">$50</div>
+<button onclick="order('02pods ')">Request Order</button>
+</div>
+
+
+<div class="card">
+<h3>02 pods Pro</h3>
 <div class="price">$70</div>
-<button onclick="order('O2Pods Pro 2')">Request Order</button>
+<button onclick="order('Wireless Earbuds Pro')">Request Order</button>
 </div>
 
 </div>
@@ -155,10 +219,13 @@ window.location.href =
 <footer style="margin-top:120px;padding:40px;">
 <p>Contact: myangels0607@yahoo.com</p>
 <p>TikTok: @desells3</p>
-</footer>
+
 <p style="font-size:12px;color:gray;">
 All products are independently sourced. DeResells is not affiliated with any brands.
 </p>
+
+</footer>
+
 </body>
 </html>
 ```
