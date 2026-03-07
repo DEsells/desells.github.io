@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +26,8 @@ margin-top:80px;
 button{
 background:#00ff9c;
 border:none;
-padding:15px 30px;
-font-size:18px;
+padding:12px 20px;
+font-size:16px;
 border-radius:8px;
 cursor:pointer;
 }
@@ -34,7 +35,7 @@ cursor:pointer;
 .products{
 margin-top:120px;
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:40px;
 padding:40px;
 }
@@ -45,14 +46,27 @@ padding:20px;
 border-radius:10px;
 }
 
-.card button{
-margin-top:10px;
+.price{
+font-size:20px;
+margin:10px 0;
+color:#00ff9c;
+}
+
+select{
+padding:8px;
+margin-top:8px;
 }
 </style>
 
 <script>
 function order(item){
-window.location.href="mailto:myangels0607@yahoo.com?subject=New Order Request&body=Customer wants: "+item;
+let sizeSelect = document.getElementById(item+"_size");
+let size = sizeSelect ? sizeSelect.value : "";
+let message = "Customer wants: " + item;
+if(size){ message += " | Size: " + size; }
+
+window.location.href =
+"mailto:myangels0607@yahoo.com?subject=New Order Request&body=" + message;
 }
 </script>
 
@@ -72,46 +86,67 @@ window.location.href="mailto:myangels0607@yahoo.com?subject=New Order Request&bo
 
 <div class="card">
 <h3>Sp5der Hoodie</h3>
+<div class="price">$80</div>
+<select id="Sp5der Hoodie_size">
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+<br><br>
 <button onclick="order('Sp5der Hoodie')">Request Order</button>
 </div>
 
 <div class="card">
 <h3>Sp5der Pants</h3>
+<div class="price">$50</div>
+<select id="Sp5der Pants_size">
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+<br><br>
 <button onclick="order('Sp5der Pants')">Request Order</button>
 </div>
 
 <div class="card">
-<h3>Dior Cologne</h3>
-<button onclick="order('Dior Cologne')">Request Order</button>
-</div>
-
-<div class="card">
 <h3>Jean Paul Cologne</h3>
+<div class="price">$60</div>
 <button onclick="order('Jean Paul Cologne')">Request Order</button>
 </div>
 
 <div class="card">
+<h3>Dior Cologne</h3>
+<div class="price">$70</div>
+<button onclick="order('Dior Cologne')">Request Order</button>
+</div>
+
+<div class="card">
 <h3>Stronger With You Cologne</h3>
+<div class="price">$70</div>
 <button onclick="order('Stronger With You Cologne')">Request Order</button>
 </div>
 
 <div class="card">
 <h3>Louis Vuitton Belt</h3>
+<div class="price">$80</div>
 <button onclick="order('LV Belt')">Request Order</button>
 </div>
 
 <div class="card">
 <h3>Louis Vuitton Wallet</h3>
+<div class="price">$65</div>
 <button onclick="order('LV Wallet')">Request Order</button>
 </div>
 
 <div class="card">
 <h3>AirPods (OG)</h3>
+<div class="price">$50</div>
 <button onclick="order('AirPods OG')">Request Order</button>
 </div>
 
 <div class="card">
 <h3>AirPods Pro 2</h3>
+<div class="price">$70</div>
 <button onclick="order('AirPods Pro 2')">Request Order</button>
 </div>
 
@@ -124,3 +159,4 @@ window.location.href="mailto:myangels0607@yahoo.com?subject=New Order Request&bo
 
 </body>
 </html>
+```
