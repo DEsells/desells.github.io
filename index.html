@@ -193,6 +193,8 @@ function changeImage(item,img){
 </footer>
 <script>
 
+<script>
+
 let cart = [];
 
 function addToCart(item){
@@ -212,11 +214,15 @@ let items = cart.join("%0D%0A");
 let order = confirm("Cart Items:\n\n" + cart.join("\n") + "\n\nPress OK to Order");
 
 if(order){
+
 window.location.href =
-"myangels0607?subject=New Order&body=Order Items:%0D%0A" + items;
+"mailto:myangels0607@gmail.com?subject=New Order&body=Order Items:%0D%0A" + items;
+
 }
 
 }
+
+</script>
 
 </script>
 </body>
