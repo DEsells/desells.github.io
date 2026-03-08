@@ -39,7 +39,14 @@ function changeImage(item,img){
 </script>
 </head>
 <body>
+<div style="display:flex; justify-content:space-between; align-items:center; background:black; padding:15px;">
+<h2 style="color:white; margin:0;">DeResells</h2>
 
+<button onclick="viewCart()" style="padding:10px 15px; border:none; background:white; border-radius:6px; cursor:pointer;">
+🛒 Cart
+</button>
+
+</div>
 <header>DeResells</header>
 
 <div class="hero">
@@ -184,6 +191,33 @@ function changeImage(item,img){
 <p>TikTok: @desells3 <a class="tiktok-btn" href="https://www.tiktok.com/@desells3" target="_blank">Visit TikTok</a></p>
 <p style="font-size:12px;color:gray;">All products are independently sourced. DeResells is not affiliated with any brands.</p>
 </footer>
+<script>
 
+let cart = [];
+
+function addToCart(item){
+cart.push(item);
+alert(item + " added to cart!");
+}
+
+function viewCart(){
+
+if(cart.length === 0){
+alert("Your cart is empty.");
+return;
+}
+
+let items = cart.join("%0D%0A");
+
+let order = confirm("Cart Items:\n\n" + cart.join("\n") + "\n\nPress OK to Order");
+
+if(order){
+window.location.href =
+"myangels0607?subject=New Order&body=Order Items:%0D%0A" + items;
+}
+
+}
+
+</script>
 </body>
 </html>
